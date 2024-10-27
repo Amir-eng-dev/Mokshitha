@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mokshitha, Will You Be Mine? ❤️</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Short+Stack&amp;family=Homemade+Apple&amp;display=swap'>
+  <link rel="stylesheet" href="./style.css">
+  <script src="devicedetection.js" defer></script> <!-- Include device detection script -->
+  
+  <style>
+    #yesButton {
+      padding: 10px;
+      background-color: #e74c3c; /* Love color */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .paper {
+      margin: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .paper1 {
+      margin: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    #loveEmojis {
+      font-size: 24px;
+      margin-top: 10px;
+      color: #e74c3c;
+    }
+
+    .paper image img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper heart"></div>
+
+  <div class="paper">
+    <p class="p1">Will you be the one permanent </p>
+    <p class="p1"> person in my life, my forever? ❤️</p>
+    <p class="p1" style="color: #e74c3c;">Click here to answer</p>
+    <button id="yesButton" onclick="showLove()">Yes!</button>
+  </div>
+
+  <div class="paper image">
+    <b><p>You are the light in my world, </p></b>
+    <b><p>the one I want beside me forever. 🌟</p></b>
+    <img src="images/a.gif" alt="Image 1" />
+  </div>
+
+  <div class="paper image">
+    <b><p>You are so sweet and pure-hearted. 💖</p></b>
+    <img src="images/a1.gif" alt="Image 2" />
+  </div>
+
+  <div class="paper image">
+    <b><p>How can someone be so lovely? ❤️</p></b>
+    <img src="images/a2.gif" alt="Image 3" />
+  </div>
+
+  <div class="paper red">
+    <p class="p1">When I talk to you,</p>
+    <p class="p1">every moment feels like a beautiful dream. 💖</p>
+  </div>
+
+  <div class="paper">
+    <p class="p1" ontouchstart="playMusicOnTouch()">You're precious,</p>
+    <p class="p1">the one who completes my heart. <span style="color: red !important;">❤️</span></p>
+  </div>
+
+  <div class="paper image">
+    <b><p>I promise to never leave you. 💖</p></b>
+    <b><p>I like you so much❤️</p></b>
+    <img src="images/a3.png" alt="Image 4" />
+  </div>
+
+  <div class="paper image">
+    <b><p>I’d say a thousand times sorry,</p></b>
+    <b><p>even if it’s not my fault,</p></b>
+    <b><p>just to never let you go. 💖</p></b>
+    <img src="images/a4.gif" alt="Image 5" />
+  </div>
+
+  <div class="paper image">
+    <b><p>In the garden of my heart,</p></b>
+    <b><p>your love blooms. 🌹💘</p></b>
+    <img src="images/a5.gif" alt="Image 6" />
+  </div>
+
+  <div class="paper red">
+    <p class="p1">your inner beauty shines </p>
+    <p class="p1">brighter than the moon 🌙💞</p>
+  </div>
+
+  <div class="paper">
+    <p class="p1">Just like the moon lights up the night,</p>
+    <p class="p1">ur text brightens my days 🌙💖</p>
+  </div>
+
+  <div class="paper">
+    <p class="p1">I promise, from now on,</p>
+    <p class="p1">no lies, only honesty and love for you. ❤️</p>
+  </div>
+
+  <div class="paper image">
+    <b><p class="p1">In your presence,</p></b>
+    <b><p class="p1">time feels timeless. ⌛</p></b>
+    <img src="images/a6.gif" alt="Image 7" />
+  </div>
+
+  <div class="paper">
+    <p class="p1">Together, let’s paint our world</p>
+    <p class="p1">with our love. 🎨❤️</p>
+  </div>
+
+  <div class="paper image">
+    <b><p>Your love, a sunshine in my life. ☀️</p></b>
+    <img src="images/a7.gif" alt="Image 8" />
+  </div>
+
+  <div class="paper" id="playMusicButton">
+    <p class="p1">Drag the papers to move!</p>
+    <button class="control-button" id="toggleMusicButton" onclick="toggleMusic()">▶ Play</button>
+    <button class="control-button" onclick="previousSong()">⏮ Previous</button>
+    <button class="control-button" onclick="nextSong()">Next ⏭</button>
+  </div>
+
+  <!-- <script src="./script.js"></script> -->
+
+  <script>
+    var hasTouched = false;
+    var isMusicPlaying = false;
+    var audio;
+    var currentSongIndex = 0;
+    var songList = ['f0.mp3','f1.mp3', 'f2.mp3', 'f3.mp3', 'f4.mp3', 'f5.mp3', 'f6.mp3'];
+
+    function playMusicOnTouch() {
+      if (!hasTouched) {
+        audio = new Audio(songList[currentSongIndex]);
+        audio.play();
+        hasTouched = true;
+        isMusicPlaying = true;
+        document.getElementById('toggleMusicButton').textContent = 'Pause⏸️';
+
+        audio.addEventListener('ended', function () {
+          nextSong();
+        });
+      }
+    }
+
+    function toggleMusic() {
+      if (isMusicPlaying) {
+        audio.pause();
+        isMusicPlaying = false;
+        document.getElementById('toggleMusicButton').textContent = '▶️ Play';
+      } else {
+        if (!audio) {
+          audio = new Audio(songList[currentSongIndex]);
+        }
+        audio.play();
+        isMusicPlaying = true;
+        document.getElementById('toggleMusicButton').textContent = 'Pause⏸️';
+
+        audio.addEventListener('ended', function () {
+          nextSong();
+        });
+      }
+    }
+
+    function nextSong() {
+      if (audio) {
+        audio.pause();
+      }
+      currentSongIndex = (currentSongIndex + 1) % songList.length;
+      audio = new Audio(songList[currentSongIndex]);
+      audio.play();
+      isMusicPlaying = true;
+      document.getElementById('toggleMusicButton').textContent = 'Pause⏸️';
+    }
+
+    function previousSong() {
+      if (audio) {
+        audio.pause();
+      }
+      currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length;
+      audio = new Audio(songList[currentSongIndex]);
+      audio.play();
+      isMusicPlaying = true;
+      document.getElementById('toggleMusicButton').textContent = 'Pause⏸️';
+    }
+
+    function showLove() {
+      alert("You are now a permanent person in Saif's life, Mokshitha! ❤️");
+
+      var answerSection = document.createElement("div");
+      answerSection.classList.add("paper1");
+
+      var answerParagraph = document.createElement("p");
+      answerParagraph.innerHTML = "Thank you for making my life so beautiful, Mokshitha! ❤️";
+      answerSection.appendChild(answerParagraph);
+
+      var loveEmojis = document.createElement("div");
+      loveEmojis.innerHTML = "💖💕😊";
+      loveEmojis.id = "loveEmojis";
+      answerSection.appendChild(loveEmojis);
+
+      document.body.appendChild(answerSection);
+    }
+  </script>
+</body>
+
+</html>
